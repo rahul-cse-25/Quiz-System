@@ -11,6 +11,7 @@ public class QuizControler {
 
 	static int correctAns = 0;
 
+	//Making the object of Questions class to here it is parameterised constructor of question and their 4 option's
 	Questions que1 = new Questions("-->Who invented Java Programming?", "a)Guido van Rossum", "b)James Gosling",
 			"c)Dennis Ritchie", "d)Bjarne Stroustrup");
 	Questions que2 = new Questions("-->Which statement is true about Java?",
@@ -37,9 +38,10 @@ public class QuizControler {
 	Questions que10 = new Questions("-->Which of these are selection statements in Java?", "a)break", "b)continue",
 			"c)for()", "d)if()");
 
-	Map<Questions, Character> map = new HashMap<>();
+	Map<Questions, Character> map = new HashMap<>(); //The object of map to store the questions and their respective correct option
 
 	public QuizControler() {
+		// putting the question and correct answer in map
 		map.put(que1, 'b');
 		map.put(que2, 'd');
 		map.put(que3, 'c');
@@ -52,6 +54,7 @@ public class QuizControler {
 		map.put(que10, 'd');
 	}
 
+	//It is used to store the user's data to give the personalized result of Quiz
 	public void getUserDetails(String name, String phoneNum, String collegeName, String profession) {
 		this.userName = name;
 		this.phoneNum = phoneNum;
@@ -59,7 +62,7 @@ public class QuizControler {
 		this.profession = profession;
 	}
 
-	public void startQuiz(Scanner sc) {
+	public void startQuiz(Scanner sc) { // This method is used to prompted the question and options and user can interact with this by giving the answer
 		for (Map.Entry<Questions, Character> que : map.entrySet()) {
 			System.out.println("--------------------------------------------------");
 			System.out.println(que.getKey().getQuestion());
@@ -81,7 +84,7 @@ public class QuizControler {
 
 	}
 
-	public void getResult() {
+	public void getResult() { // this method is used to show the personalize Result of the Quiz
 		System.out.println("--------------------------------------------------");
 		System.out.println("********************Quiz Result*******************");
 		System.out.println("--------------------------------------------------");
@@ -113,6 +116,8 @@ public class QuizControler {
 
 	}
 
+	// below this is the methods to encapsulate the data and whenever needed it can be retrive by these method 
+	// it's a getter methods
 	public String getUserName() {
 		return userName;
 	}
